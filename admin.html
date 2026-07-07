@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DSA Quiz Arena - Admin Panel</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+  <!-- Sticky Header -->
+  <header>
+    <div class="header-container">
+      <a href="quiz.html" class="logo">
+        <span>⚡</span> DSA ARENA <span class="admin-badge">Admin</span>
+      </a>
+      <div class="user-nav">
+        <a href="quiz.html" class="btn btn-secondary btn-sm" style="padding: 0.45rem 0.9rem; font-size: 0.85rem; margin-right: 0.75rem;">Go to Quiz</a>
+        <span id="user-badge" class="user-badge">Admin</span>
+        <button id="btn-logout" class="btn btn-secondary btn-sm" style="padding: 0.4rem 0.8rem; font-size: 0.85rem;">Logout</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Admin Main Workspace -->
+  <div class="container admin-container animated-fadeIn">
+    
+    <!-- Admin Dashboard Info Row -->
+    <div class="admin-dashboard-row">
+      <div class="glass-card stat-card">
+        <span class="stat-label">Total Pool Questions</span>
+        <span id="stat-total-questions" class="stat-val">0</span>
+      </div>
+      <div class="stat-actions">
+        <button id="btn-add-question" class="btn btn-primary">
+          <span>＋</span> Add New Question
+        </button>
+        <button id="btn-reset-db" class="btn btn-secondary text-error" style="border-color: rgba(239, 68, 68, 0.2);">
+          <span>🔄</span> Reset to Default (30 Seed Questions)
+        </button>
+      </div>
+    </div>
+
+    <!-- Questions Database Card -->
+    <div class="glass-card pool-card">
+      <div class="pool-header">
+        <h2>📚 Question Repository</h2>
+        <p>Edit or remove active quiz questions. Changes apply immediately to local test runs.</p>
+      </div>
+
+      <div class="table-wrapper">
+        <table class="questions-table">
+          <thead>
+            <tr>
+              <th style="width: 60px;">ID</th>
+              <th>Question Details</th>
+              <th style="width: 150px; text-align: center;">Correct Answer</th>
+              <th style="width: 160px; text-align: right;">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="questions-tbody">
+            <!-- Dynamically populated -->
+            <tr>
+              <td colspan="4" class="text-center">Loading questions...</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Add/Edit Question Modal Overlay -->
+  <div id="question-modal" class="modal-overlay">
+    <div class="glass-card modal-card admin-modal-card">
+      <h2 id="modal-title">Add New Question</h2>
+      <p id="modal-subtitle">Fill in the fields below. A question must have exactly 4 choices.</p>
+      
+      <form id="question-form">
+        <!-- Hidden input for ID when editing -->
+        <input type="hidden" id="edit-question-id">
+
+        <!-- Question Text -->
+        <div class="form-group">
+          <label class="form-label" for="input-question-text">Question Text</label>
+          <textarea id="input-question-text" class="form-control" rows="3" placeholder="What is the average time complexity of..." required></textarea>
+        </div>
+
+        <!-- Option A -->
+        <div class="form-group">
+          <label class="form-label" for="input-opt-a">Option A</label>
+          <input type="text" id="input-opt-a" class="form-control" placeholder="Option A text" required>
+        </div>
+
+        <!-- Option B -->
+        <div class="form-group">
+          <label class="form-label" for="input-opt-b">Option B</label>
+          <input type="text" id="input-opt-b" class="form-control" placeholder="Option B text" required>
+        </div>
+
+        <!-- Option C -->
+        <div class="form-group">
+          <label class="form-label" for="input-opt-c">Option C</label>
+          <input type="text" id="input-opt-c" class="form-control" placeholder="Option C text" required>
+        </div>
+
+        <!-- Option D -->
+        <div class="form-group">
+          <label class="form-label" for="input-opt-d">Option D</label>
+          <input type="text" id="input-opt-d" class="form-control" placeholder="Option D text" required>
+        </div>
+
+        <!-- Correct Option index Dropdown -->
+        <div class="form-group">
+          <label class="form-label" for="select-correct">Correct Option</label>
+          <select id="select-correct" class="form-control" required>
+            <option value="" disabled selected>-- Select correct answer --</option>
+            <option value="0">Option A</option>
+            <option value="1">Option B</option>
+            <option value="2">Option C</option>
+            <option value="3">Option D</option>
+          </select>
+        </div>
+
+        <!-- Explanation -->
+        <div class="form-group">
+          <label class="form-label" for="input-explanation">Explanation / Solution Details</label>
+          <textarea id="input-explanation" class="form-control" rows="2" placeholder="Provide a detailed explanation of why this option is correct..."></textarea>
+        </div>
+
+        <!-- Form Actions -->
+        <div class="modal-actions">
+          <button type="button" id="btn-cancel-modal" class="btn btn-secondary">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save Question</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- JavaScript Modules -->
+  <script type="module" src="js/admin.js"></script>
+</body>
+</html>

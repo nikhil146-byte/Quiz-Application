@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DSA Quiz Arena - Results & Leaderboard</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/result.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="header-container">
+      <a href="quiz.html" class="logo">
+        <span>⚡</span> DSA ARENA
+      </a>
+      <div class="user-nav">
+        <span id="admin-link-container"></span>
+        <span id="user-badge" class="user-badge">Username</span>
+        <button id="btn-logout" class="btn btn-secondary btn-sm" style="padding: 0.4rem 0.8rem; font-size: 0.85rem;">Logout</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="container result-container animated-fadeIn">
+    
+    <!-- Top Result Banner -->
+    <div class="glass-card scorecard-card">
+      <h1 class="text-center">Performance Report</h1>
+      
+      <div class="scorecard-grid">
+        <!-- SVG Score Radial Circle -->
+        <div class="radial-score-wrapper">
+          <svg class="radial-svg" viewBox="0 0 120 120">
+            <circle class="radial-track" cx="60" cy="60" r="50"></circle>
+            <circle id="radial-fill" class="radial-fill" cx="60" cy="60" r="50"></circle>
+          </svg>
+          <div class="radial-center">
+            <span id="score-percentage">0%</span>
+            <span class="radial-label">Score</span>
+          </div>
+        </div>
+
+        <!-- Metrics Grid -->
+        <div class="metrics-grid">
+          <div class="metric-box">
+            <span class="metric-num text-success" id="val-correct">0</span>
+            <span class="metric-label">Correct</span>
+          </div>
+          <div class="metric-box">
+            <span class="metric-num text-error" id="val-wrong">0</span>
+            <span class="metric-label">Incorrect</span>
+          </div>
+          <div class="metric-box">
+            <span class="metric-num" style="color: var(--warning);" id="val-skipped">0</span>
+            <span class="metric-label">Unanswered</span>
+          </div>
+          <div class="metric-box">
+            <span class="metric-num" style="color: var(--accent);" id="val-time">0m 0s</span>
+            <span class="metric-label">Time Taken</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="action-buttons">
+        <a href="quiz.html" class="btn btn-primary">Retake Quiz</a>
+        <a href="#leaderboard-section" class="btn btn-secondary">Leaderboard</a>
+      </div>
+    </div>
+
+    <!-- Main Results Panels (Leaderboard & Detailed Review) -->
+    <div class="panels-grid">
+      
+      <!-- Leaderboard Card -->
+      <section id="leaderboard-section" class="glass-card panel-card">
+        <div class="panel-header">
+          <h2>🏆 Arena Leaderboard</h2>
+          <p>Top scores sorted by accuracy, then speed.</p>
+        </div>
+        
+        <div class="table-container">
+          <table class="leaderboard-table">
+            <thead>
+              <tr>
+                <th style="width: 70px;">Rank</th>
+                <th>User</th>
+                <th style="text-align: center;">Score</th>
+                <th style="text-align: center;">Time</th>
+                <th style="text-align: right;">Date</th>
+              </tr>
+            </thead>
+            <tbody id="leaderboard-body">
+              <!-- Dynamically populated -->
+              <tr>
+                <td colspan="5" class="text-center">Loading leaderboard entries...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Review Card -->
+      <section id="review-section" class="glass-card panel-card">
+        <div class="panel-header">
+          <h2>🔍 Question-by-Question Review</h2>
+          <p>Examine correct solutions and explanations.</p>
+        </div>
+
+        <div id="review-container" class="review-stack">
+          <!-- Dynamically populated question cards -->
+        </div>
+      </section>
+
+    </div>
+
+  </div>
+
+  <!-- JavaScript Modules -->
+  <script type="module" src="js/result.js"></script>
+</body>
+</html>

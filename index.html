@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DSA Quiz Application - Master Data Structures & Algorithms</title>
+  <meta name="description" content="Test your DSA knowledge with this responsive 30-question quiz application featuring a live leaderboard and dynamic analytics.">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+
+  <div class="container landing-container animated-fadeIn">
+    
+    <!-- Hero / Logo Section -->
+    <div class="hero-section">
+      <div class="logo">
+        <span>⚡</span> DSA QUIZ ARENA
+      </div>
+      <h1>Master Data Structures & Algorithms</h1>
+      <p class="subtitle">Test your problem-solving skills under pressure. Solve 30 comprehensive Multiple Choice Questions with a strict 30-second timer per question.</p>
+    </div>
+
+    <!-- Auth Card -->
+    <div class="glass-card auth-card">
+      <div class="auth-tabs">
+        <button id="tab-login" class="auth-tab active" aria-selected="true">Sign In</button>
+        <button id="tab-register" class="auth-tab" aria-selected="false">Sign Up</button>
+      </div>
+
+      <!-- Login Form -->
+      <form id="form-login" class="auth-form active">
+        <h2 class="form-title">Welcome Back</h2>
+        <p class="form-subtitle">Enter your credentials to access the quiz arena.</p>
+
+        <div class="form-group">
+          <label class="form-label" for="login-email">Email Address</label>
+          <input type="email" id="login-email" class="form-control" placeholder="name@example.com" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="login-password">Password</label>
+          <input type="password" id="login-password" class="form-control" placeholder="••••••••" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-full mt-4">
+          Enter Arena <span>➔</span>
+        </button>
+      </form>
+
+      <!-- Registration Form -->
+      <form id="form-register" class="auth-form">
+        <h2 class="form-title">Create Account</h2>
+        <p class="form-subtitle">Register to trace your rank on the leaderboard.</p>
+
+        <div class="form-group">
+          <label class="form-label" for="register-username">Username</label>
+          <input type="text" id="register-username" class="form-control" placeholder="AlgoGeek" required minlength="3" maxlength="15">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="register-email">Email Address</label>
+          <input type="email" id="register-email" class="form-control" placeholder="name@example.com" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="register-password">Password</label>
+          <input type="password" id="register-password" class="form-control" placeholder="At least 6 characters" required minlength="6">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="register-confirm-password">Confirm Password</label>
+          <input type="password" id="register-confirm-password" class="form-control" placeholder="Repeat password" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-full mt-4">
+          Register & Join <span>➔</span>
+        </button>
+      </form>
+
+      <!-- Testing Credentials Box -->
+      <div class="demo-credentials">
+        <div class="demo-title">💡 Demo Accounts for Testing</div>
+        <div class="demo-item">
+          <span>Admin:</span> <code>admin@dsa.com</code> / <code>admin123</code>
+        </div>
+        <div class="demo-item">
+          <span>User:</span> <code>user@dsa.com</code> / <code>user123</code>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- JavaScript Modules -->
+  <script type="module" src="js/auth.js"></script>
+</body>
+</html>

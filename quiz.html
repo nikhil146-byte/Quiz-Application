@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DSA Quiz Arena - Live Test</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/quiz.css">
+</head>
+<body>
+
+  <!-- Sticky Header -->
+  <header>
+    <div class="header-container">
+      <a href="quiz.html" class="logo">
+        <span>⚡</span> DSA ARENA
+      </a>
+      <div class="user-nav">
+        <span id="admin-link-container"></span>
+        <span id="user-badge" class="user-badge">Username</span>
+        <button id="btn-logout" class="btn btn-secondary btn-sm" style="padding: 0.4rem 0.8rem; font-size: 0.85rem;">Logout</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Quiz Arena Container -->
+  <div class="container quiz-container animated-fadeIn">
+    
+    <!-- Top Stats Bar -->
+    <div class="stats-bar">
+      <!-- Progress Text -->
+      <div class="progress-details">
+        <span class="detail-label">Progress</span>
+        <span id="progress-text" class="detail-val">Question 0 of 0</span>
+      </div>
+
+      <!-- Timer Indicator -->
+      <div class="timer-wrapper">
+        <svg class="timer-svg" viewBox="0 0 80 80">
+          <circle class="timer-track" cx="40" cy="40" r="34"></circle>
+          <circle id="timer-progress" class="timer-fill" cx="40" cy="40" r="34"></circle>
+        </svg>
+        <span id="timer-seconds" class="timer-text">30</span>
+      </div>
+    </div>
+
+    <!-- Overall Progress Bar -->
+    <div class="progress-bar-container">
+      <div id="progress-fill" class="progress-bar-fill" style="width: 0%;"></div>
+    </div>
+
+    <!-- Question Glass Card -->
+    <div class="glass-card quiz-card">
+      <!-- Question Section -->
+      <div class="question-header">
+        <h2 id="question-text">Loading question...</h2>
+      </div>
+
+      <!-- Options List -->
+      <div id="options-container" class="options-grid">
+        <!-- Dynmically loaded: options will go here -->
+        <button class="option-btn">
+          <span class="option-letter">A</span>
+          <span class="option-content">Option content placeholder</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Navigation Controls -->
+    <div class="navigation-controls">
+      <button id="btn-prev" class="btn btn-secondary" disabled>
+        <span>←</span> Previous
+      </button>
+      <button id="btn-next" class="btn btn-primary">
+        Next <span>→</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Submission Confirmation Modal -->
+  <div id="submit-modal" class="modal-overlay">
+    <div class="glass-card modal-card">
+      <h2>Submit Quiz?</h2>
+      <p>Are you sure you want to finish and submit your answers? You will not be able to change them after submission.</p>
+      <div id="unanswered-warning" class="warning-text" style="display: none;">
+        ⚠️ You have unanswered questions.
+      </div>
+      <div class="modal-actions">
+        <button id="btn-cancel-submit" class="btn btn-secondary">Go Back</button>
+        <button id="btn-confirm-submit" class="btn btn-success">Yes, Submit</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript Modules -->
+  <script type="module" src="js/quiz.js"></script>
+</body>
+</html>
